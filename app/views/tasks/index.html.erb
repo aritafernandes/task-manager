@@ -1,0 +1,15 @@
+<div class="container mt-5">
+  <div class="mb-5">
+    <h1 class="mt-5">Task Manager</h1>
+  </div>
+
+  <div>
+    <%= render 'task_form', task: @task %>
+  </div>
+
+  <div class="mt-5">
+    <% @tasks.each do |task| %>
+      <p><%= task.description %></p>
+    <% end %>
+  </div>
+</div>

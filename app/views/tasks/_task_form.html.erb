@@ -1,0 +1,10 @@
+<div class="row g-3">
+  <div class="col-8">
+    <%= form_with(model: Task.new, url: tasks_path, method: :post) do |form| %>
+      <%= form.text_area :description, class: 'form-control', placeholder: "Add new task" %>
+    </div>
+    <div class="col-auto">
+      <%= form.submit 'Save', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>

@@ -65,5 +65,6 @@ group :development do
 end
 
 gem "devise"
-gem "bootstrap", '~> 5.0.0'
 gem 'font-awesome-rails'
+gem 'bootstrap', '~> 5.2.3'
+

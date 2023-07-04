@@ -18,9 +18,11 @@
 @import "font-awesome";
 @import "components/avatar";
 @import "components/navbar";
+@import "components/devise";
 
 body {
   font-family: $body-font;
+  background: hsla(250, 38%, 57%, 0.9)
 }
 
 h1,

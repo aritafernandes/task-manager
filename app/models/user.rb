@@ -3,4 +3,12 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  has_many :tasks
+
+  validates :email, uniqueness: true
+
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
+
+  validates :password, length: { minimum: 6 }
+
 end

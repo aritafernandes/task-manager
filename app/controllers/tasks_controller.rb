@@ -14,10 +14,12 @@ class TasksController < ApplicationController
   def create
     @task = current_user.tasks.new(task_params)
 
-    if @task.save
-      redirect_to tasks_path, notice: 'Task was successfully created'
-    else
-      render :new, status: :unprocessable_entity
+    respond_to do |format|
+      if @task.save
+        format.html { redirect_to tasks_url, notice: 'Task was successfully created' }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+      end
     end
   end
 

@@ -1,22 +1,25 @@
 <div class="container mt-5">
   <div class="row">
-      <h1 class="mt-5">Task Manager</h1>
+    <h1 class="mt-5">Task Manager</h1>
   </div>
-
   <div>
     <%= render 'task_form', task: @task %>
-  <div class="col-md-6 mt-3">
-    <% if notice.present? %>
-      <div class="alert alert-success alert-sm mb-4" role="alert">
-        <%= notice %>
-      </div>
-    <% end %>
+    <div class="col-md-6 mt-3">
+      <% if notice.present? %>
+        <div class="alert alert-success alert-sm mb-4" role="alert">
+          <%= notice %>
+        </div>
+      <% end %>
+    </div>
   </div>
-  </div>
-
   <div class="mt-5">
     <% @tasks.each do |task| %>
-      <p><%= task.description %></p>
+      <p>
+        <%= task.description %>
+        <span class="status">
+          <%= select_tag 'status', options_for_select(Task.statuses.keys, task.status), class: 'form-select' %>
+        </span>
+      </p>
     <% end %>
   </div>
 </div>

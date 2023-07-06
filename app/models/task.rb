@@ -6,9 +6,8 @@ class Task < ApplicationRecord
   validates :description, length: { maximum: 500 }
 
   enum status: {
-    pending: 0,
-    in_progress: 1,
-    completed: 2
+    'To Do' => 0,
+    'Doing' => 1,
+    'Completed' => 2
   }
-  
 end

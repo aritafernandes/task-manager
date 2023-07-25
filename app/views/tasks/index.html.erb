@@ -20,8 +20,11 @@
           <span class="status">
             <%= f.select :status, options_for_select(Task.statuses.keys.map { |key| [key.humanize, key] }, task.status), class: 'form-select' %>
           </span>
+          <%= f.submit 'Update', class: 'btn btn-secondary' %>
         </p>
-        <%= f.submit 'Update', class: 'btn btn-secondary' %>
+      <% end %>
+      <%= form_for task, url: task_path(task), method: :delete, data: { confirm: 'Are you sure you want to delete this task?' } do |f| %>
+        <%= f.submit 'Delete', class: 'btn btn-danger', style: 'margin-bottom: 10px;' %>
       <% end %>
     <% end %>
   </div>
